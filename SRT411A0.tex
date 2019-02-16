@@ -1,0 +1,417 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{hyperref}
+\hypersetup{unicode=true,
+            pdftitle={SRT411A0},
+            pdfauthor={Katelin Stuart},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{0}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+
+  \title{SRT411A0}
+    \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+    \author{Katelin Stuart}
+    \preauthor{\centering\large\emph}
+  \postauthor{\par}
+      \predate{\centering\large\emph}
+  \postdate{\par}
+    \date{February 15, 2019}
+
+
+\begin{document}
+\maketitle
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Compute the difference between 2014 and the year you started at this
+  university and divide this by the difference between 2014 and the year
+  you were born. Multiply this with 100 to get the percentage of your
+  life you have spent at this university. Use brackets if you need them.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{((}\DecValTok{2017}\OperatorTok{-}\DecValTok{2014}\NormalTok{)}\OperatorTok{/}\NormalTok{(}\DecValTok{2014}\OperatorTok{-}\DecValTok{1987}\NormalTok{))}\OperatorTok{*}\DecValTok{100}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 11.11111
+\end{verbatim}
+
+2.Repeat the previous ToDo, but with several steps in between. You can
+give the variables any name you want, but the name has to start with a
+letter.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{start_year=}\DecValTok{2017}
+\NormalTok{base_year=}\DecValTok{2014}
+\NormalTok{bday=}\DecValTok{1987}
+\NormalTok{percentage=}\DecValTok{100}
+\NormalTok{((start_year}\OperatorTok{-}\NormalTok{base_year)}\OperatorTok{/}\NormalTok{(base_year}\OperatorTok{-}\NormalTok{bday))}\OperatorTok{*}\NormalTok{percentage}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 11.11111
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Compute the sum of 4,5,8 and 11 by first combing them into a vector
+  and then using the function sum.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{k=}\KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{11}\NormalTok{) }
+\KeywordTok{sum}\NormalTok{(k)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 28
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Plot 100 normal random numbers.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x =}\StringTok{ }\KeywordTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(x)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SRT411A0_files/figure-latex/unnamed-chunk-4-1.pdf} 5.
+Find help for the sqrt function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{help}\NormalTok{(sqrt)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Make a file called firstscript.R containing R-code that generates 100
+  random numbes and plots them, and run this script several times.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"/home/kaitee/assignments/0"}\NormalTok{)}
+\KeywordTok{source}\NormalTok{(}\StringTok{"firstscript.r"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SRT411A0_files/figure-latex/unnamed-chunk-6-1.pdf} 7.
+Put the numbers 31 to 60 in a vector named P and in a matrix with 6 rows
+and 5 columns named Q. Tip: use the function seq. Look at the different
+ways scalars, vectors and matrices are denoted in the workspace window.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{P=}\KeywordTok{seq}\NormalTok{(}\DecValTok{31}\NormalTok{,}\DecValTok{60}\NormalTok{)}
+\NormalTok{Q=}\KeywordTok{matrix}\NormalTok{(P,}\DataTypeTok{ncol=}\DecValTok{5}\NormalTok{,}\DataTypeTok{nrow=}\DecValTok{6}\NormalTok{)}
+\NormalTok{Q}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4] [,5]
+## [1,]   31   37   43   49   55
+## [2,]   32   38   44   50   56
+## [3,]   33   39   45   51   57
+## [4,]   34   40   46   52   58
+## [5,]   35   41   47   53   59
+## [6,]   36   42   48   54   60
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{7}
+\tightlist
+\item
+  Make a script file which constructs three random normal vectors of
+  length 100. Call these vectors x1, x2 and x3. Make a data frame called
+  t with three columns (called a, b and c) containing respectively x1,
+  x1+x2 and x1+x2+x3.Call the following functions for this data
+  frame:plot(t) and sd(t). Can you understand the results? Rerun this
+  script a few times.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{source}\NormalTok{(}\StringTok{"script_vectors.r"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SRT411A0_files/figure-latex/unnamed-chunk-8-1.pdf}
+\includegraphics{SRT411A0_files/figure-latex/unnamed-chunk-8-2.pdf} 9.
+Add these lines to the script file of the previous section. Try to find
+out, either by experimenting or by using the help, what the meaning is
+of rgb, the last argument of rgb, lwd, pch, cex.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{source}\NormalTok{(}\StringTok{"script_vectors.r"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SRT411A0_files/figure-latex/unnamed-chunk-9-1.pdf}
+\includegraphics{SRT411A0_files/figure-latex/unnamed-chunk-9-2.pdf} 10.
+Make a file called tst1.txt in Notepad from the example in Figure 4 and
+store it in your working directory. Write a script to read it, to
+multiply the column called g by 5 and to store it as tst2.txt.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_var=}\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\StringTok{"tst1.txt"}\NormalTok{,}\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{)}
+\NormalTok{my_var2=my_var}\OperatorTok{$}\NormalTok{g}\OperatorTok{*}\DecValTok{5}
+\KeywordTok{write.table}\NormalTok{(my_var2, }\DataTypeTok{file=}\StringTok{"tst2.txt"}\NormalTok{, }\DataTypeTok{row.names=}\OtherTok{FALSE}\NormalTok{)}
+\KeywordTok{read.table}\NormalTok{(}\DataTypeTok{file=}\StringTok{"tst2.txt"}\NormalTok{, }\DataTypeTok{header=}\OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     x
+## 1  10
+## 2  20
+## 3  40
+## 4  80
+## 5 160
+## 6 320
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{10}
+\tightlist
+\item
+  Compute the mean of the square root of a vector of 100 random numbers.
+  What happens?
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{mean}\NormalTok{(}\KeywordTok{sqrt}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DecValTok{100}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning in sqrt(rnorm(100)): NaNs produced
+\end{verbatim}
+
+\begin{verbatim}
+## [1] NaN
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{11}
+\tightlist
+\item
+  Make a graph with on the x-axis: today, Sinterklaas 2014 and your next
+  birthday and oncthe y-axis the number of presents you expect oneach of
+  these days. Tip: make two vectors first.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{date=}\KeywordTok{strptime}\NormalTok{( }\KeywordTok{c}\NormalTok{(}\DecValTok{20190215}\NormalTok{, }\DecValTok{20141225}\NormalTok{, }\DecValTok{20191009}\NormalTok{), }\DataTypeTok{format=}\StringTok{"%Y%m%d"}\NormalTok{)}
+\NormalTok{presents=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{t=}\KeywordTok{data.frame}\NormalTok{(}\DataTypeTok{x=}\NormalTok{date, }\DataTypeTok{y=}\NormalTok{presents)}
+\KeywordTok{plot}\NormalTok{(date, presents, }\DataTypeTok{col=}\StringTok{"dark green"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{SRT411A0_files/figure-latex/unnamed-chunk-12-1.pdf} 13.
+Make a vector from 1 to 100. Make a for-loop which runs through the
+whole vector. Multiply the elements which are smaller than 5 and larger
+than 90 with 10 and the other elements with 0.1.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{q=}\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{1}\NormalTok{, }\DataTypeTok{to=}\DecValTok{100}\NormalTok{)}
+\NormalTok{s=}\KeywordTok{c}\NormalTok{()}
+ \ControlFlowTok{for}\NormalTok{(i }\ControlFlowTok{in} \DecValTok{1}\OperatorTok{:}\DecValTok{100}\NormalTok{)}
+\NormalTok{ \{}
+   \ControlFlowTok{if}\NormalTok{(q[i]}\OperatorTok{<}\DecValTok{5}\NormalTok{)}
+\NormalTok{   \{}
+\NormalTok{     s[i]=q[i]}\OperatorTok{*}\DecValTok{5}
+\NormalTok{   \}}
+   \ControlFlowTok{else} \ControlFlowTok{if}\NormalTok{ (q[i]}\OperatorTok{>}\DecValTok{90}\NormalTok{)}
+\NormalTok{   \{}
+\NormalTok{     s[i]=q[i]}\OperatorTok{*}\DecValTok{10}
+\NormalTok{   \}}
+   \ControlFlowTok{else}
+\NormalTok{   \{}
+\NormalTok{     s[i]=q[i]}\OperatorTok{*}\FloatTok{0.1}
+\NormalTok{   \} }
+ 
+\NormalTok{ \}}
+\NormalTok{s}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   [1]    5.0   10.0   15.0   20.0    0.5    0.6    0.7    0.8    0.9    1.0
+##  [11]    1.1    1.2    1.3    1.4    1.5    1.6    1.7    1.8    1.9    2.0
+##  [21]    2.1    2.2    2.3    2.4    2.5    2.6    2.7    2.8    2.9    3.0
+##  [31]    3.1    3.2    3.3    3.4    3.5    3.6    3.7    3.8    3.9    4.0
+##  [41]    4.1    4.2    4.3    4.4    4.5    4.6    4.7    4.8    4.9    5.0
+##  [51]    5.1    5.2    5.3    5.4    5.5    5.6    5.7    5.8    5.9    6.0
+##  [61]    6.1    6.2    6.3    6.4    6.5    6.6    6.7    6.8    6.9    7.0
+##  [71]    7.1    7.2    7.3    7.4    7.5    7.6    7.7    7.8    7.9    8.0
+##  [81]    8.1    8.2    8.3    8.4    8.5    8.6    8.7    8.8    8.9    9.0
+##  [91]  910.0  920.0  930.0  940.0  950.0  960.0  970.0  980.0  990.0 1000.0
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{13}
+\tightlist
+\item
+  Write a function for the previous ToDo, so that you can feed it any
+  vector you like (as argument). Use a for-loop in the function to do
+  the computation with each element. Use the standard R function length
+  in the specification of the counter.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{my_func=}\ControlFlowTok{function}\NormalTok{(arg1, arg2)}
+\NormalTok{\{}
+\NormalTok{  q[i]=arg1[i];}
+  \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \KeywordTok{length}\NormalTok{(q))}
+\NormalTok{  \{}
+    
+\NormalTok{  \}}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+
+\end{document}
